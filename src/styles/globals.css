@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Light Mode - Ultra Clean Minimal Colors (sport.fun inspired) */
+  --lootbox-bg-primary: #fafafa;
+  --lootbox-bg-secondary: #f5f5f5;
+  --lootbox-bg-tertiary: #efefef;
+  --lootbox-bg-card: #ffffff;
+  
+  --lootbox-blue-primary: #2563eb;
+  --lootbox-blue-light: #3b82f6;
+  --lootbox-blue-dark: #1d4ed8;
+  
+  --lootbox-teal-primary: #0d9488;
+  --lootbox-teal-light: #14b8a6;
+  --lootbox-teal-dark: #0f766e;
+  
+  --lootbox-gold: #f59e0b;
+  --lootbox-orange: #f97316;
+  --lootbox-red: #ef4444;
+  --lootbox-green: #22c55e;
+  --lootbox-purple: #8b5cf6;
+  
+  --lootbox-text-primary: #0a0a0a;
+  --lootbox-text-secondary: #737373;
+  --lootbox-text-muted: #a3a3a3;
+  
+  --lootbox-border: #e5e5e5;
+  --lootbox-border-light: #f5f5f5;
+  
+  /* ShadCN Variables */
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #2563eb;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #2563eb;
+  --radius: 0.5rem;
+  
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+}
+
+/* Dark Mode */
+.dark {
+  /* Dark Mode Colors - Ultra Clean Minimal (sport.fun inspired) */
+  --lootbox-bg-primary: #0a0a0a;
+  --lootbox-bg-secondary: #141414;
+  --lootbox-bg-tertiary: #1a1a1a;
+  --lootbox-bg-card: #141414;
+  
+  --lootbox-blue-primary: #3b82f6;
+  --lootbox-blue-light: #60a5fa;
+  --lootbox-blue-dark: #2563eb;
+  
+  --lootbox-teal-primary: #14b8a6;
+  --lootbox-teal-light: #2dd4bf;
+  --lootbox-teal-dark: #0d9488;
+  
+  --lootbox-gold: #fbbf24;
+  --lootbox-orange: #fb923c;
+  --lootbox-red: #f87171;
+  --lootbox-green: #4ade80;
+  --lootbox-purple: #a78bfa;
+  
+  --lootbox-text-primary: #fafafa;
+  --lootbox-text-secondary: #a3a3a3;
+  --lootbox-text-muted: #737373;
+  
+  --lootbox-border: #262626;
+  --lootbox-border-light: #1a1a1a;
+  
+  /* ShadCN Variables */
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #141414;
+  --card-foreground: #fafafa;
+  --popover: #141414;
+  --popover-foreground: #fafafa;
+  --primary: #3b82f6;
+  --primary-foreground: #fafafa;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #fafafa;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --accent: #3b82f6;
+  --accent-foreground: #0a0a0a;
+  --destructive: #f87171;
+  --destructive-foreground: #fafafa;
+  --border: #262626;
+  --input: #262626;
+  --ring: #3b82f6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-family);
+  }
+}
+
+/* Lootbox.com Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lootbox-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lootbox-blue-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lootbox-blue-light);
+}
+
+/* Theme-aware text colors */
+.text-primary {
+  color: var(--lootbox-text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--lootbox-text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--lootbox-text-muted) !important;
+}
+
+/* Override Tailwind's text-white to be theme-aware */
+.text-white {
+  color: var(--lootbox-text-primary) !important;
+}
+
+/* Typography */
+@layer base {
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  button {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+}
+
+/* Lootbox.com Custom Classes */
+.lootbox-gradient-blue {
+  background: linear-gradient(135deg, var(--lootbox-blue-primary), var(--lootbox-teal-primary));
+}
+
+.lootbox-gradient-gold {
+  background: linear-gradient(135deg, var(--lootbox-gold), var(--lootbox-orange));
+}
+
+.lootbox-gradient-red {
+  background: linear-gradient(135deg, #ff6b6b, var(--lootbox-red));
+}
+
+.lootbox-card {
+  background: var(--lootbox-bg-card);
+  border: 1px solid var(--lootbox-border);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.lootbox-card:hover {
+  border-color: var(--lootbox-blue-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 144, 255, 0.2);
+}
+
+.lootbox-glow-blue {
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.3), 0 0 40px rgba(30, 144, 255, 0.1);
+}
+
+.lootbox-glow-gold {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.lootbox-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.lootbox-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.lootbox-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Grid Pattern Background */
+.lootbox-grid-bg {
+  background-image: 
+    linear-gradient(rgba(30, 144, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 144, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Optimized Rarity Box Animations */
+.rarity-box:hover {
+  transform: scale(1.08) rotate(3deg);
+}
+
+/* Smooth GPU-accelerated animations */
+@keyframes shimmer-slide {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer-slide 3s linear infinite;
+}
+
+/* Performance optimization */
+.rarity-box,
+.lootbox-card,
+[style*="transform"] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
