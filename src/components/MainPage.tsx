@@ -4,7 +4,7 @@ import { Flame, Star, Zap, Gift, ChevronRight, ChevronLeft, Sparkles, TrendingUp
 import { LiveDrops } from "./LiveDrops";
 import { SportOpeningModal } from "./SportOpeningModal";
 import { PromoBanner, StatsBar } from "./PromoBanner";
-import { MinimalCaseCard } from "./MinimalCaseCard";
+import { EnhancedCaseCard } from "./EnhancedCaseCard";
 import { FloatingShapes, AchievementBanner, FeatureSpotlight, SectionDivider } from "./DesignElements";
 import { SectionHeader } from "./SectionHeader";
 import { ScrollToTop } from "./ScrollToTop";
@@ -641,9 +641,9 @@ export function MainPage({ balance, setBalance, addToInventory }: MainPageProps)
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.5 }}
             className="relative"
             style={{
@@ -758,38 +758,16 @@ export function MainPage({ balance, setBalance, addToInventory }: MainPageProps)
           </motion.div>
         </AnimatePresence>
 
-        {/* Carousel Controls */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:bg-opacity-100"
-          style={{
-            background: 'var(--lootbox-bg-tertiary)',
-            border: '1px solid var(--lootbox-border)',
-          }}
-        >
-          <ChevronLeft className="w-5 h-5" style={{ color: 'var(--lootbox-text-primary)' }} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:bg-opacity-100"
-          style={{
-            background: 'var(--lootbox-bg-tertiary)',
-            border: '1px solid var(--lootbox-border)',
-          }}
-        >
-          <ChevronRight className="w-5 h-5" style={{ color: 'var(--lootbox-text-primary)' }} />
-        </button>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+        {/* Vertical Slide Indicators - On the Side */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-10">
           {featuredCases.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
               className="rounded-full transition-all"
               style={{
-                width: currentSlide === index ? '24px' : '8px',
-                height: '8px',
+                width: '8px',
+                height: currentSlide === index ? '24px' : '8px',
                 background: currentSlide === index ? 'var(--lootbox-blue-primary)' : 'var(--lootbox-border)',
               }}
             />
@@ -817,7 +795,7 @@ export function MainPage({ balance, setBalance, addToInventory }: MainPageProps)
         {/* Cases Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
           {gamingCases.map((lootbox, index) => (
-            <MinimalCaseCard
+            <EnhancedCaseCard
               key={lootbox.id}
               lootbox={lootbox}
               index={index}
@@ -849,7 +827,7 @@ export function MainPage({ balance, setBalance, addToInventory }: MainPageProps)
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
           {techCases.map((lootbox, index) => (
-            <MinimalCaseCard
+            <EnhancedCaseCard
               key={lootbox.id}
               lootbox={lootbox}
               index={index}
@@ -881,7 +859,7 @@ export function MainPage({ balance, setBalance, addToInventory }: MainPageProps)
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
           {fashionCases.map((lootbox, index) => (
-            <MinimalCaseCard
+            <EnhancedCaseCard
               key={lootbox.id}
               lootbox={lootbox}
               index={index}

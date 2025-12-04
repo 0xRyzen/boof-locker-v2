@@ -10,6 +10,7 @@ import { ProvablyFairPage } from "./components/ProvablyFairPage";
 import { AuthModal } from "./components/AuthModal";
 import { MinimalLiveDrops } from "./components/MinimalLiveDrops";
 import { MinimalBackground } from "./components/MinimalBackground";
+import { TournamentProfileCard } from "./components/TournamentProfileCard";
 import { motion } from "motion/react";
 
 type Page = "main" | "battles" | "inventory" | "profile" | "leaderboard" | "provably-fair";
@@ -568,12 +569,12 @@ export default function App() {
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full lootbox-pulse-glow" style={{ background: 'var(--lootbox-green)' }} />
               <span style={{ color: 'var(--lootbox-text-secondary)' }}>Online:</span>
-              <span className="text-white" style={{ fontWeight: 600 }}>15,429</span>
+              <span style={{ fontWeight: 600, color: '#ffffff' }}>15,429</span>
             </div>
             <div className="flex items-center gap-2">
               <Box className="w-4 h-4" style={{ color: 'var(--lootbox-blue-primary)' }} />
               <span style={{ color: 'var(--lootbox-text-secondary)' }}>Cases Opened:</span>
-              <span className="text-white" style={{ fontWeight: 600 }}>2.4M+</span>
+              <span style={{ fontWeight: 600, color: '#ffffff' }}>2.4M+</span>
             </div>
             <div className="flex items-center gap-2">
               <Trophy className="w-4 h-4" style={{ color: 'var(--lootbox-gold)' }} />
@@ -582,11 +583,11 @@ export default function App() {
             </div>
           </div>
           <div className="flex items-center gap-4" style={{ color: 'var(--lootbox-text-muted)' }}>
-            <span className="hover:text-white cursor-pointer transition-colors">Help Center</span>
-            <span>•</span>
-            <span className="hover:text-white cursor-pointer transition-colors">Provably Fair</span>
-            <span>•</span>
-            <span className="hover:text-white cursor-pointer transition-colors">18+ Responsible Gaming</span>
+            <span className="cursor-pointer transition-colors" style={{ color: 'rgba(255, 255, 255, 0.5)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)'}>Help Center</span>
+            <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
+            <span className="cursor-pointer transition-colors" style={{ color: 'rgba(255, 255, 255, 0.5)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)'}>Provably Fair</span>
+            <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>•</span>
+            <span className="cursor-pointer transition-colors" style={{ color: 'rgba(255, 255, 255, 0.5)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)'}>18+ Responsible Gaming</span>
           </div>
         </div>
       </div>

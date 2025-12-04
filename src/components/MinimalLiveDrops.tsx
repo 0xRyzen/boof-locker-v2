@@ -94,7 +94,7 @@ export function MinimalLiveDrops() {
 
       {/* Drops List */}
       <div 
-        className="overflow-y-auto h-full pb-32"
+        className="overflow-y-auto h-full pb-32 p-4 space-y-3"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -105,46 +105,48 @@ export function MinimalLiveDrops() {
           {drops.map((drop) => (
             <motion.div
               key={drop.id}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="border-b"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-lg border p-4 hover:bg-white/[0.02] transition-colors cursor-pointer"
               style={{
                 borderColor: 'var(--lootbox-border)',
+                background: 'var(--lootbox-bg-secondary)',
               }}
             >
-              <div className="px-6 py-3">
-                <div className="flex items-center justify-between mb-1">
-                  <span 
-                    style={{
-                      color: 'var(--lootbox-text-primary)',
-                      fontWeight: 600,
-                      fontSize: '0.8125rem',
-                    }}
-                  >
-                    {drop.user}
-                  </span>
-                  <span 
-                    style={{
-                      color: 'var(--lootbox-green)',
-                      fontWeight: 700,
-                      fontSize: '0.8125rem',
-                    }}
-                  >
-                    ${drop.value.toFixed(2)}
-                  </span>
-                </div>
-                <p 
-                  className="truncate"
+              <div className="flex items-start justify-between gap-3 mb-2">
+                <span 
                   style={{
-                    color: 'var(--lootbox-text-secondary)',
-                    fontSize: '0.75rem',
+                    color: 'var(--lootbox-text-primary)',
+                    fontWeight: 700,
+                    fontSize: '0.875rem',
+                    lineHeight: '1.2',
                   }}
                 >
-                  {drop.item}
-                </p>
+                  {drop.user}
+                </span>
+                <span 
+                  style={{
+                    color: 'var(--lootbox-green)',
+                    fontWeight: 700,
+                    fontSize: '0.875rem',
+                    lineHeight: '1.2',
+                  }}
+                >
+                  ${drop.value.toFixed(2)}
+                </span>
               </div>
+              <p 
+                className="truncate"
+                style={{
+                  color: 'var(--lootbox-text-secondary)',
+                  fontSize: '0.8125rem',
+                  lineHeight: '1.4',
+                }}
+              >
+                {drop.item}
+              </p>
             </motion.div>
           ))}
         </AnimatePresence>
